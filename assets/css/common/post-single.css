@@ -195,8 +195,10 @@ h6:hover .anchor {
 }
 
 .post-content .highlight:not(table) {
-    margin: var(--content-gap) auto;
+    margin: 10px auto;
+    background: var(--code-block-bg) !important;
     border-radius: var(--radius);
+    direction: ltr;
 }
 
 .post-content li > .highlight {
@@ -226,10 +228,6 @@ h6:hover .anchor {
 .post-content .highlighttable td .highlight,
 .post-content .highlighttable td .linenodiv pre {
     margin-bottom: 0;
-}
-
-.post-content .highlighttable td .highlight pre code::-webkit-scrollbar {
-    display: none;
 }
 
 .post-content code {

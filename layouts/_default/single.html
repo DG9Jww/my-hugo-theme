@@ -19,6 +19,7 @@
       {{ .Description }}
     </div>
     {{- end }}
+
     {{- if not (.Param "hideMeta") }}
     <div class="post-meta">
       {{- partial "post_meta.html" . -}}
@@ -27,6 +28,16 @@
       {{- partial "post_canonical.html" . -}}
     </div>
     {{- end }}
+
+
+    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+    <ul class="post-tags">
+      {{- range ($.GetTerms $tags) }}
+      <li><a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+
+
   </header>
   {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }}
   {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" $isHidden) }}
@@ -43,12 +54,6 @@
   {{- end }}
 
   <footer class="post-footer">
-    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
-    <ul class="post-tags">
-      {{- range ($.GetTerms $tags) }}
-      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
     {{- if (.Param "ShowPostNavLinks") }}
     {{- partial "post_nav_links.html" . }}
     {{- end }}
