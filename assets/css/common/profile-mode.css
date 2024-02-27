@@ -1,0 +1,77 @@
+.buttons,
+.main .profile {
+    display: flex;
+    justify-content: center;
+}
+
+.main .profile {
+    align-items: center;
+    min-height: 300px;
+    text-align: center;
+}
+
+.profile .profile_inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 6rem;
+    transition: transform 0.3s ease; 
+    padding-top: 2rem;
+    backface-visibility: hidden; /*加了这个，图片向上移动的时候就不会变模糊了*/
+}
+
+.profile img:hover {
+    transform: translateY(-5px);
+}
+
+.buttons {
+    flex-wrap: wrap;
+    max-width: 400px;
+}
+
+.button {
+    background: var(--tertiary);
+    border-radius: var(--radius);
+    margin: 8px;
+    padding: 6px;
+    transition: transform 0.1s;
+}
+
+.button-inner {
+    padding: 0 8px;
+}
+
+.button:active {
+    transform: scale(0.96);
+}
+
+/* subtitle typing */
+.typewriter .typing {
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 1.3s steps(20, end),
+    blink-caret 1s step-end infinite;
+  display: inline-block;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--content)} 
+}

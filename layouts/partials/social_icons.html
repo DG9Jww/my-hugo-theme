@@ -1,0 +1,26 @@
+<div class="social-icons" {{ with .align}}align="{{.}}" {{- end }}>
+    {{- range site.Params.socialIcons }}
+    <a href="{{ trim .url " " | safeURL }}" target="_blank" rel="noopener noreferrer me"
+        title="{{ (.title | default .name) | title }}">
+        {{ partial "svg.html" . }}
+    </a>
+    {{- end }}
+</div>
+
+<script>
+// 获取所有图标元素
+const icons = document.querySelectorAll('.social-icons a');
+// 遍历每个图标元素
+icons.forEach(icon => {
+    icon.addEventListener('mouseenter', () => {
+      icon.classList.add('orange'); // 鼠标移入时改变图标颜色
+    });
+  
+    // 添加鼠标移出事件监听器
+    icon.addEventListener('mouseleave', () => {
+      icon.classList.remove('orange'); // 鼠标移出删除颜色
+    });
+});
+
+</script>
+
